@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	</title>
+
+	<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+	<style type="text/css">
+	table {
+		font-family: verdana,arial,sans-serif;
+		font-size:11px;
+		color:#333333;
+		border-width: 1px;
+		border-color: #a9c6c9;
+		border-collapse: collapse;
+	}
+	table th {
+		border-width: 1px;
+		padding: 8px;
+		border-style: solid;
+		border-color: #a9c6c9;
+	}
+	table td {
+		border-width: 1px;
+		padding: 8px;
+		border-style: solid;
+		border-color: #a9c6c9;
+	}
+	.oddrowcolor{
+		background-color:#d4e3e5;
+	}
+	.evenrowcolor{
+		background-color:#c3dde0;
+	}
+	</style>
+
+</head>
+<body>
+
+
+<table id="scatter" style="width: 100%;" border="1">
+	<thead>散点图 - 大数据可视化Demo</thead>
+	<tbody>
+		<tr>
+			<th>展示类型</th>
+			<th>展示例子</th>
+		</tr>
+		<tr>
+			<td>全国空气质量数据展示</td>
+			<td><a href="/html/scatter/air-quality.html">主要城市空气质量</a></td>
+		</tr>
+		<tr>
+			<td>全国空气质量数据展示（交互，相应，气泡图）</td>
+			<td><a href="/html/scatter/air-quality-effectScatter.html">主要城市空气质量（特效散点图）</a></td>
+		</tr>
+		<tr>
+			<td>全国空气质量数据展示（交互，选择）</td>
+			<td><a href="/html/scatter/air-quality-with-brush.html">主要城市空气质量（Brush）</a></td>
+		</tr>
+		<tr>
+			<td>北京、上海、广州空气质量展示（交互，调参）</td>
+			<td><a href="/html/scatter/scatter-aqi-color.html">北京、上海、广州空气质量</a></td>
+		</tr>
+
+		<tr>
+			<td>微博签到数据展示</td>
+			<td><a href="/html/scatter/weibo-sign-in.html">微博签到，点亮中国</a></td>
+		</tr>
+
+		<tr>
+			<td>时间演化数据展示</td>
+			<td><a href="/html/scatter/scatter-life-expectancy-timeline.html">各国人均寿命与GDP关系演变</a></td>
+		</tr>
+
+		<tr>
+			<td>时间演化数据展示</td>
+			<td><a href="/html/scatter/scatter-painter-choice.html">大师级画家颜色选取演变</a></td>
+		</tr>
+
+	</tbody>
+</table>
+
+<br>
+<br>
+
+<table id="map" style="width: 100%;" border="1">
+	<thead>地图 - 大数据可视化Demo</thead>
+	<tbody>
+		<tr>
+			<th>展示类型</th>
+			<th>展示例子</th>
+		</tr>
+		<tr>
+			<td>全球航线展示</td>
+			<td><a href="/html/map/world-flights.html">65k+ 航线数据展示</a></td>
+		</tr>
+		<tr>
+			<td>公交路线展示（静态）</td>
+			<td><a href="/html/map/lines-bmap-bus.html">北京公交路线地图展示</a></td>
+		</tr>
+		<tr>
+			<td>公交路线展示（动态）</td>
+			<td><a href="/html/map/beijing-bus-line.html">北京公交路线迁移展示</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<br>
+<br>
+
+<table id="klines" style="width: 100%;" border="1">
+	<thead>k线图 - 大数据可视化Demo</thead>
+	<tbody>
+		<tr>
+			<th>展示类型</th>
+			<th>展示例子</th>
+		</tr>
+		<tr>
+			<td>上证指数</td>
+			<td><a href="/html/candlestick/candlestick-sh.html">上证数据展示</a></td>
+		</tr>
+		
+	</tbody>
+</table>
+
+<br>
+<br>
+
+<table id="relat" style="width: 100%;" border="1">
+	<thead>关系图 - 大数据可视化Demo</thead>
+	<tbody>
+		<tr>
+			<th>展示类型</th>
+			<th>展示例子</th>
+		</tr>
+		<tr>
+			<td>les-miserables</td>
+			<td><a href="/html/graph/graph-circular-layout.html">Les Misérables (悲惨世界)</a></td>
+		</tr>
+		
+		<tr>
+			<td>les-miserables</td>
+			<td><a href="/html/graph/graph.html">Les Misérables (悲惨世界)</a></td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+<!-- Javascript goes in the document HEAD -->
+<script type="text/javascript">
+function altRows(id){
+	if(document.getElementsByTagName){  
+		
+		var table = document.getElementById(id);  
+		var rows = table.getElementsByTagName("tr"); 
+		 
+		for(i = 0; i < rows.length; i++){          
+			if(i % 2 == 0){
+				rows[i].className = "evenrowcolor";
+			}else{
+				rows[i].className = "oddrowcolor";
+			}      
+		}
+	}
+}
+
+window.onload=function(){
+	altRows('scatter');
+	altRows('map');
+	altRows('klines');
+	altRows('relat');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<script language="javascript" type="text/javascript">
+//初始化编辑器
+function init() {
+var ifr = document.getElementById("editor");
+var doc = ifr.contentDocument || ifr.contentWindow.document; // W3C || IE
+doc.designMode="on";
+doc.contentEditable= true;
+doc.write('<html><head><style>body{ margin:3px; word-wrap:break-word; word-break: break-all; }</style></head><body>请输入笔记</body></html>');
+alert(doc.body.innerHTML);
+}
+
+//设置选定的文本为粗体/正常
+function setBold() {
+var win1=document.getElementById("editor").contentWindow;
+win1.document.execCommand("Bold",false,null);
+win1.focus();
+}
+//设置选定的文本为斜体/正常
+function setItalic() {
+var win2=document.getElementById("editor").contentWindow;
+win2.document.execCommand("Italic",false,null);
+win2.focus();
+}
+//设置选定的文本加下划线/正常
+function setUnderline() {
+var win3=document.getElementById("editor").contentWindow;
+win3.document.execCommand("Underline",false,null);
+win3.focus();
+}
+//设置选定的文本加删除线/正常
+function setStrikeThrough() {
+var win4=document.getElementById("editor").contentWindow;
+win4.document.execCommand("StrikeThrough",false,null);
+win4.focus();
+}
+//设置选定的文本字体颜色
+function fColor(){
+var obj1=window.event.srcElement;
+var win5=document.getElementById("editor").contentWindow;
+sColor=obj1.options[obj1.selectedIndex].value; 
+win5.document.execCommand("ForeColor","false",sColor);
+} 
+//设置选定的文本字体大小
+function fSize(){
+var obj2=document.getElementById("select2");
+var win6=document.getElementById("editor").contentWindow;
+console.log(obj2);
+sSize=obj2.options[obj2.selectedIndex].value; 
+console.log(sSize)
+win6.document.execCommand("ForeSize","false",sSize);
+} 
+</script>
+
+<p>
+  <input type="button" id="bBtn" value="B" style="font-weight:bold" onclick="setBold();" />
+  <input type="button" id="bItn" value="I" style="font-weight:italic" onclick="setItalic();" />
+  <input type="button" id="bUtn" value="U" style="text-decoration:underline;" onclick="setUnderline();" />
+  <input type="button" id="bStn" value="S" style="text-decoration:StrikeThrough;" onclick="setStrikeThrough();" /> 
+  <select id="select1" onchange="fColor()">    
+  <option value="black">黑</option>     
+  <option value="red">红</option>     
+  <option value="yellow">黄</option>     
+  <option value="blue">蓝</option>      
+  <option value="green">绿</option>      
+  <option value="purple">紫</option>   
+  </select>   
+  <select id="select2" onchange="fSize()">    
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>     
+  <option value="5">5</option>     
+  <option value="6">6</option>
+  <option value="7">7</option>     
+  </select>   
+</p >
+<p>
+  <iframe id="editor" width="600px" height="400px" style="border:solid 1px;"></iframe>
+</p >
+<script type="text/javascript">
+init();
+</script>
